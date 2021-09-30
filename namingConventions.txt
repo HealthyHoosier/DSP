@@ -1,0 +1,9 @@
+
+
+camelCase (variables)
+snake_case
+kebab-case
+PascalCase
+CAPS_SNAKE_CASE (constants)
+
+
