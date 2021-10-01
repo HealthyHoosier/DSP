@@ -1,0 +1,66 @@
+/*----------------------------------------------------NAVBAR-----------------------------------------------*/
+header{
+    /*BORDER*/
+    border-style: solid;
+    border-color: salmon;
+    border-width: 2px;
+    /*BACKGROUND*/
+    background-color: black;
+}
+.navbar-light .navbar-brand{ 
+    /*TEXT*/
+    font-family: 'verdana';
+    color: salmon;
+    /*PADDING*/
+    padding-top: 10px;
+}
+.navbar-light .navbar-brand:hover{
+    /*TEXT*/
+    font-family: 'verdana';
+    color: salmon;
+}
+.navbar-light .navbar-nav .nav-link{
+    /*TEXT*/
+    font-family: 'verdana';
+    color: salmon;
+}
+.navbar-light .navbar-nav .nav-link.active{
+    /*TEXT*/
+    font-family: 'verdana';
+    color: yellow;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    /*TEXT*/
+    font-family: 'verdana';
+    color: pink;
+}
+.navbar-toggler {
+    /*COLORS*/
+    background-color: salmon;
+    opacity: 100%;
+}
+
+
+/*----------------------------------------------------BODY------------------------------------------------*/
+body{
+    /*TEXT*/
+    font-family: 'verdana';
+    /*COLORS*/
+    background-color:salmon;
+}
+
+/*---------------------------------------------------FOOTER------------------------------------------------*/
+footer{
+    /*TEXT*/
+    font-family: 'verdana';
+    color: salmon;
+    text-align: center;
+    /*COLORS*/
+    background-color:black;
+    /*BORDER*/
+    border-style: solid;
+    border-color: salmon;
+    border-width: 2px;
+    /*PADDING*/
+    padding-top: 10px;
+}
