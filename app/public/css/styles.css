@@ -27,12 +27,12 @@ header{
 .navbar-light .navbar-nav .nav-link.active{
     /*TEXT*/
     font-family: "Lucida Console", "Courier New", monospace;
-    color: yellow;
+    color:#FF1493;
 }
 .navbar-light .navbar-nav .nav-link:hover{
     /*TEXT*/
     font-family:"Lucida Console", "Courier New", monospace;
-    color:#FF1493;
+    color: yellow;
 }
 .navbar-toggler {
     /*COLORS*/
