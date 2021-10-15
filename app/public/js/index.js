@@ -1,44 +1,83 @@
-
-const Offer = {
+const SomeApp = {
     data() {
       return {
-        "person": {
-            name: {},
-            picture: {},
-            dob: {},
+        students: [],
+        selectedStudent: null,
+        offers: [],
+        offerForm: {}
+      }
+    },
+    computed: {},
+    methods: {
+        prettyData(d) {
+            return dayjs(d)
+            .format('D MMM YYYY')
         },
-        }
-    },
-    
-    computed: {
-        prettyBirthday(){
-            return dayjs(this.person.dob.date)
-            .format ('D MMM YYYY')
-        }
-    },
-    
-    methods:{
-        fetchUserData(){
-            console.log("A");
-            fetch('https://randomuser.me/api/')
+        prettyDollar(n) {
+            const d = new Intl.NumberFormat("en-US").format(n);
+            return "$ " + d;
+        },
+        selectStudent(s) {
+            if (s == this.selectedStudent) {
+                return;
+            }
+            this.selectedStudent = s;
+            this.offers = [];
+            this.fetchOfferData(this.selectedStudent);
+        },
+        fetchStudentData() {
+            fetch('/api/student/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
-                console.log("C");
-                this.person = responseJson.results[0];
+                this.students = responseJson;
             })
             .catch( (err) => {
                 console.error(err);
             })
-            console.log("B");
-         //end fetchUserData 
+        },
+        fetchOfferData(s) {
+            console.log("Fetching offer data for ", s);
+            fetch('/api/offer/?student=' + s.id)
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.offers = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
+            .catch( (error) => {
+                console.error(error);
+            });
+        },
+        postNewOffer(evt) {
+          this.offerForm.studentId = this.selectedStudent.id;        
+          console.log("Posting:", this.offerForm);
+          // alert("Posting!");
+  
+          fetch('api/offer/create.php', {
+              method:'POST',
+              body: JSON.stringify(this.offerForm),
+              headers: {
+                "Content-Type": "application/json; charset=utf-8"
+              }
+            })
+            .then( response => response.json() )
+            .then( json => {
+              console.log("Returned from post:", json);
+              // TODO: test a result was returned!
+              this.offers = json;
+              
+              // reset the form
+              this.offerForm = {};
+            });
         }
     },
-    
     created() {
-        this.fetchUserData();
-    } //end created (Event hook created automatically when the view is created)
-}
+        this.fetchStudentData();
+    }
   
-Vue.createApp(Offer).mount('#offerApp');
-console.log("Z");
+  }
+  
+  Vue.createApp(SomeApp).mount('#offerApp');
