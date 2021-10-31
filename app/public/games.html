@@ -47,8 +47,53 @@
     </nav>
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
-  <h2>EXAMPLE CONTENT</h2>
-  <p>Here is some sample content</p>
+<main>
+<!-- Game Table  -->
+
+  <div class="p-2" id="refereeTable">  
+     <h1>Hoosier Games</h1>
+     <table id="refereeTable" class="table table-hover">
+     <thead>
+       <tr>
+         <th scope="col">Referee Id</th>
+         <th scope="col">Referee Name</th>
+         <th scope="col">Age</th>
+         <th scope="col">Years of Experience</th>
+       </tr>
+     </thead>
+ 
+     <tbody>
+       <tr v-for="referee in referees">
+         <td>{{ referee.refereeid }}</td>
+         <td>{{ referee.refereeName }}</td>
+         <td>{{ referee.age }}</td>
+         <td>{{ referee.yearsExperience }}</td>
+     </tbody>
+   </table>
+ 
+    <!-- Game Form  -->
+    <form v-on:submit.prevent="postNewReferee">
+     <div class="p-2 mb-3">
+       <label for="refereeName" class="form-label">Referee Name</label>
+       <input type="text" v-model="refereeForm.refereeName"
+        class="form-control" id="refereeName">
+     </div>
+     <div class="p-2 mb-3">
+         <label for="age" class="form-label">Age</label>
+         <input type="number" v-model="refereeForm.age"
+          class="form-control" id="age">
+       </div>
+       <div class="p-2 mb-3">
+         <label for="yearsExperience" class="form-label">Years of Experience</label>
+         <input type="text" v-model="refereeForm.yearsExperience"
+          class="form-control" id="yearsExperience">
+       </div>
+     
+     <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+ </div>
+ </main>
+ 
 
 </body>
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
