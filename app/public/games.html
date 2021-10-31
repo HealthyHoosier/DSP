@@ -58,37 +58,45 @@
          <th scope="col">Host Team</th>
          <th scope="col">Visitor Team</th>
          <th scope="col">Referee Name</th>
-         <th scope="col">Date</th>
+         <th scope="col">Game Date</th>
          <th scope="col">Score</th>
        </tr>
      </thead>
  
      <tbody>
        <tr v-for="referee in referees">
-         <td>{{ game.HostTeam }}</td>
-         <td>{{ game.VistorTeam }}</td>
-         <td>{{ referee.refereeName }}</td>
+         <td>{{ game.gameHost }}</td>
+         <td>{{ game.gameVistor }}</td>
+         <td>{{ referee.refereeid }}</td>
+         <td>{{ game.gameDate }}</td>
          <td>{{ game.score }}</td>
      </tbody>
    </table>
  
     <!-- Game Form  -->
-    <form v-on:submit.prevent="postNewReferee">
+    <h3>{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
+    <form v-on:submit.prevent="postGame">
      <div class="p-2 mb-3">
-       <label for="refereeName" class="form-label">Referee Name</label>
-       <input type="text" v-model="refereeForm.refereeName"
-        class="form-control" id="refereeName">
+       <label for="gameHost" class="form-label">Host Team</label>
+       <input type="text" v-model="gameForm.gameHost"
+        class="form-control" id="gameHost">
      </div>
      <div class="p-2 mb-3">
-         <label for="age" class="form-label">Age</label>
-         <input type="number" v-model="refereeForm.age"
-          class="form-control" id="age">
+         <label for="gameVistor" class="form-label">Visiting Team</label>
+         <input type="text" v-model="gameForm.gameVistor"
+          class="form-control" id="gameVistor">
        </div>
        <div class="p-2 mb-3">
-         <label for="yearsExperience" class="form-label">Years of Experience</label>
-         <input type="text" v-model="refereeForm.yearsExperience"
-          class="form-control" id="yearsExperience">
+         <label for="refereeid" class="form-label">Referee</label>
+         <input type="text" v-model="refereeForm.refereeid"
+          class="form-control" id="refereeid">
        </div>
+
+       <div class="p-2 mb-3">
+        <label for="gameDate" class="form-label">Game Date</label>
+        <input type="number" v-model="gameForm.gameDate"
+         class="form-control" id="gameDate">
+      </div>
      
      <button type="submit" class="btn btn-primary">Submit</button>
    </form>
