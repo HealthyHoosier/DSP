@@ -55,19 +55,20 @@
      <table id="refereeTable" class="table table-hover">
      <thead>
        <tr>
-         <th scope="col">Referee Id</th>
+         <th scope="col">Host Team</th>
+         <th scope="col">Visitor Team</th>
          <th scope="col">Referee Name</th>
-         <th scope="col">Age</th>
-         <th scope="col">Years of Experience</th>
+         <th scope="col">Date</th>
+         <th scope="col">Score</th>
        </tr>
      </thead>
  
      <tbody>
        <tr v-for="referee in referees">
-         <td>{{ referee.refereeid }}</td>
+         <td>{{ game.HostTeam }}</td>
+         <td>{{ game.VistorTeam }}</td>
          <td>{{ referee.refereeName }}</td>
-         <td>{{ referee.age }}</td>
-         <td>{{ referee.yearsExperience }}</td>
+         <td>{{ game.score }}</td>
      </tbody>
    </table>
  
