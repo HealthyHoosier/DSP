@@ -10,7 +10,7 @@ header{
 .navbar-light .navbar-brand{ 
     /*TEXT*/
     font-family:"Lucida Console", "Courier New", monospace;
-    color:#990000;
+    color: whitesmoke;
     /*PADDING*/
     padding-top: 10px;
 }
@@ -53,7 +53,7 @@ body{
 footer{
     /*TEXT*/
     font-family: "Lucida Console", "Courier New", monospace;
-    color:#990000;
+    color:whitesmoke;
     text-align: center;
     /*COLORS*/
     background-color:black;
