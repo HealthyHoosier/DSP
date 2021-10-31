@@ -49,7 +49,8 @@
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 
 
-<!-- Books Table -->
+<!-- Referees Table -->
+<main>
  <div class="p-2" id="refereeTable">  
     <h1>League Referees</h1>
     <table id="refereeTable" class="table table-hover">
@@ -71,7 +72,7 @@
     </tbody>
   </table>
 
-   <!-- Form  -->
+   <!-- New Referee Form  -->
    <form v-on:submit.prevent="postNewReferee">
     <div class="p-2 mb-3">
       <label for="refereeName" class="form-label">Referee Name</label>
@@ -92,6 +93,7 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+</main>
 
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
 <footer>
