@@ -1,12 +1,28 @@
-//pull data from REF Table
-$.getJSON(refereeTable, function (data) {
-            $.each(data, function (index, referee) {
-// APPEND OR INSERT DATA TO SELECT ELEMENT.
-                $('#sel').append('<option value="' + referee.refereeid + '">' + referee.refereeName + '</option>');
-            });
-        });
+const Referee = {
+  data() {
+    return {
+      "referee":[]
+  }
+},
 
-// POST TO TABLE
+fetchRefereeData(r) {
+  fetch('/api/referees/')
+  .then( response => response.json() )
+  .then( (responseJson) => {
+      console.log(responseJson);
+      this.referee = responseJson;
+      })
+  .catch( (err) => {
+      console.error(err);
+  })
+},
+
+created() {
+  this.fetchRefereeData();
+  }
+}
+
+Vue.createApp(Referee).mount('#refereesJS');
 
 
 
