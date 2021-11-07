@@ -101,6 +101,11 @@ const Referee = {
       this.refereeForm = {};
     }
   },
-  
+// Closing Methods ------------------------------------------------------------------------------------
+},
+// Created ------------------------------------------------------------------------------------
+created() {
+      this.fetchRefereesData();
   }
 Vue.createApp(Referee).mount('#refereesJS');
+

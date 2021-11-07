@@ -47,8 +47,62 @@
     </nav>
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
-  <h2>EXAMPLE CONTENT</h2>
-  <p>Here is some sample content</p>
+<main>
+<!-- Game Table  -->
+
+  <div class="p-2" id="refereeTable">  
+     <h1>Hoosier Games</h1>
+     <table id="refereeTable" class="table table-hover">
+     <thead>
+       <tr>
+         <th scope="col">Host Team</th>
+         <th scope="col">Visitor Team</th>
+         <th scope="col">Referee Name</th>
+         <th scope="col">Game Date</th>
+         <th scope="col">Score</th>
+       </tr>
+     </thead>
+ 
+     <tbody>
+       <tr v-for="referee in referees">
+         <td>{{ game.gameHost }}</td>
+         <td>{{ game.gameVistor }}</td>
+         <td>{{ referee.refereeid }}</td>
+         <td>{{ game.gameDate }}</td>
+         <td>{{ game.score }}</td>
+     </tbody>
+   </table>
+ 
+    <!-- Game Form  -->
+    <h3>{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
+    <form v-on:submit.prevent="postGame">
+     <div class="p-2 mb-3">
+       <label for="gameHost" class="form-label">Host Team</label>
+       <input type="text" v-model="gameForm.gameHost"
+        class="form-control" id="gameHost">
+     </div>
+     <div class="p-2 mb-3">
+         <label for="gameVistor" class="form-label">Visiting Team</label>
+         <input type="text" v-model="gameForm.gameVistor"
+          class="form-control" id="gameVistor">
+       </div>
+       <div class="p-2 mb-3">
+         <label for="refereeid" class="form-label">Referee</label>
+         <input type="text" v-model="refereeForm.refereeid"
+          class="form-control" id="refereeid">
+       </div>
+
+       <div class="p-2 mb-3">
+        <label for="gameDate" class="form-label">Game Date</label>
+        <input type="number" v-model="gameForm.gameDate"
+         class="form-control" id="gameDate">
+      </div>
+     
+     <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+ </div>
+ </main>
+ 
 
 </body>
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->

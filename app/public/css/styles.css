@@ -2,7 +2,7 @@
 header{
     /*BORDER*/
     border-style: solid;
-    color:#FF1493;
+    color:#990000;
     border-width: 2px;
     /*BACKGROUND*/
     background-color: black;
@@ -10,24 +10,24 @@ header{
 .navbar-light .navbar-brand{ 
     /*TEXT*/
     font-family:"Lucida Console", "Courier New", monospace;
-    color:#FF1493;
+    color: whitesmoke;
     /*PADDING*/
     padding-top: 10px;
 }
 .navbar-light .navbar-brand:hover{
     /*TEXT*/
     font-family: "Lucida Console", "Courier New", monospace;
-    color:#FF1493;
+    color:#990000;
 }
 .navbar-light .navbar-nav .nav-link{
     /*TEXT*/
     font-family:"Lucida Console", "Courier New", monospace;
-    color:#FF1493;
+    color:#990000;
 }
 .navbar-light .navbar-nav .nav-link.active{
     /*TEXT*/
     font-family: "Lucida Console", "Courier New", monospace;
-    color:#FF1493;
+    color:#990000;
 }
 .navbar-light .navbar-nav .nav-link:hover{
     /*TEXT*/
@@ -36,7 +36,7 @@ header{
 }
 .navbar-toggler {
     /*COLORS*/
-    background-color:#FF1493;
+    background-color:#990000;
     opacity: 100%;
 }
 
@@ -46,20 +46,20 @@ body{
     /*TEXT*/
     font-family: "Lucida Console", "Courier New", monospace;
     /*COLORS*/
-    background-color:#FF1493;
+    background-color:#990000;
 }
 
 /*---------------------------------------------------FOOTER------------------------------------------------*/
 footer{
     /*TEXT*/
     font-family: "Lucida Console", "Courier New", monospace;
-    color:#FF1493;
+    color:whitesmoke;
     text-align: center;
     /*COLORS*/
     background-color:black;
     /*BORDER*/
     border-style: solid;
-    border-color:#FF1493;
+    border-color:#990000;
     border-width: 2px;
     /*PADDING*/
     padding-top: 10px;

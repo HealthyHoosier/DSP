@@ -11,10 +11,10 @@ $vars = [];
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$books = $stmt->fetchAll();
+$referees = $stmt->fetchAll();
 
 // Step 3
-$json = json_encode($books, JSON_PRETTY_PRINT);
+$json = json_encode($referees, JSON_PRETTY_PRINT);
 
 // Step 4
 header('Content-Type: application/json');
