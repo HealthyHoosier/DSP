@@ -19,7 +19,7 @@
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
   <!--TITLE-->
-  <title>I.S.R. Association</title>
+  <title>Referees</title>
 </head>
 
 <body>
@@ -28,8 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
     <div class="container-fluid" id="">
       <!--COMPANY NAME-->
-      <h1 class="navbar-brand"><b><i>Indiana Soccer Referees</i></b></h1>
-
+      <h1 class="navbar-brand" id=""><b><i>Indiana Soccer Referees</i></b></h1>
       
       <!--BUTTON TO EXPAND COLLAPSED NAVBAR-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,40 +47,61 @@
     </nav>
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
-<main>
-  <div class="container-fluid">
-      <h1>Welcome to the Official Indiana Socccer League Site!</h1>
-      <h4>The source to find all of the new relevant content about the best soccer league in the Hoosier state.</h4>
-     
-      <div class="row p-3">
-        <div class="col-sm-4">This website will contain all the pertinent information of Megan Kelley's life, rumors and book preferences! Please stay tuned for future updates throughout 2021.</div>
-       
-        
-  
-        <div class="col-sm-4">
-          <img class="img-thumbnail" src="img\Sachi.jpg">
-            <p>Source: https://www.glamour.com/story/megan-fox-opens-up-about-why-she-stopped-drinking-alcohol</p>         
-          </div>
-       
-        <div class="col-sm-4">
-          <img class="img-thumbnail" src="img\Transformers.jpg"></img>
-            <p> Source: https://www.pastemagazine.com/movies/transformers-megan-fox/</p>
-        </div>
-      
-     </div>
 
- </div>
+<!-- Books Table -->
+ <div class="p-2" id="refereesJS">  
 
-    </div>
+    <h1>League Referees</h1>
+    <table id="refereeTable" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Referee Id</th>
+        <th scope="col">Referee Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Years of Experience</th>
+      </tr>
+    </thead>
 
-  </div>
+    <tbody>
+      <tr v-for="referee in referees">
+        <td>{{ referee.refereeid }}</td>
+        <td>{{ referee.refereeName }}</td>
+        <td>{{ referee.age }}</td>
+        <td>{{ referee.yearsExperience }}</td>
+    </tbody>
+  </table>
 
+   <!-- Form  -->
+   <br>
+   <form v-on:submit.prevent="postNewReferee" id="refereeForm">
+    <fieldset>
+      <legend id="form_title"><h3>{{ selectedRef === null ? "Add " : "Edit " }} Referee</h3></legend>
+      <br>
+      <div class="p-2 mb-3">
+        <label for="refereeName" class="form-label">Referee Name</label>
+        <input type="text" v-model="refereeForm.refereeName" class="form-control" id="refereeName">
+      </div>
+      <div class="p-2 mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" v-model="refereeForm.age" class="form-control" id="age">
+      </div>
+      <div class="p-2 mb-3">
+        <label for="yearsExperience" class="form-label">Years of Experience</label>
+        <input type="text" v-model="refereeForm.yearsExperience" class="form-control" id="yearsExperience">
+      </div>
+    </fieldset>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 </main>
-</body>
+
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
 <footer>
   <div class="container-fluid">
     <p>Kelley School of Business</p>
   </div>
 </footer>
+</body>
+
 </html>
