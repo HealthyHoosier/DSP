@@ -41,6 +41,7 @@
           <a class="nav-link active" href="index.html">Home</a>
           <a class="nav-link" href="referees.html">Referees</a>
           <a class="nav-link" href="games.html">Games</a>
+          <a class="nav-link" href="assignment.html">Referee Assignments</a>
         </div>
       </div>
     </div>
@@ -65,7 +66,7 @@
         <form v-on:submit.prevent="postAssignment">
             <div class="mb-3">
                 <label for="Assignee" class="form-label">Assigned by:<span class="reqd">*</span></label>
-                <input type="number" v-model="assignmentform.Assignee" class="form-control" id="Assignee" required="required">
+                <input type="text" v-model="assignmentform.Assignee" class="form-control" id="Assignee" required="required">
               </div>
 
             <div class="mb-3 form-check form-check-inline">
@@ -78,14 +79,19 @@
                 <label class="form-check-label" for="gameStatus">Post-Game</label>
               </div>
             
-            <div class="mb-3">
-            <label for="companyName" class="form-label">Referee<span class="reqd">*</span></label>
-            <input type="text" v-model="offerForm.companyName"
-             class="form-control" id="companyName" required="required">
-            </div>
+              <div class="mb-3 form-group">
+                <label for="refereeName">Referee:<span class="reqd">*</span></label></label>
+                <select class="form-control" id="refereeName" required="required">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
 
-        <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+      
         </form>
 
       </div>
