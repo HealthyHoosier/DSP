@@ -19,7 +19,7 @@
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
   <!--TITLE-->
-  <title>I.S.R. Association</title>
+  <title>Referee Assignment</title>
 </head>
 
 <body>
@@ -28,8 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
     <div class="container-fluid" id="">
       <!--COMPANY NAME-->
-      <h1 class="navbar-brand"><b><i>Indiana Soccer Referees</i></b></h1>
-
+      <h1 class="navbar-brand" id=""><b><i>Indiana Soccer Referees</i></b></h1>
       
       <!--BUTTON TO EXPAND COLLAPSED NAVBAR-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,35 +49,61 @@
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 <main>
-  <div class="container-fluid">
-      <h1>Welcome to the Official Indiana Socccer League Site!</h1>
-      <h4>The source to find all of the new relevant content about the best soccer league in the Hoosier state.</h4>
-     
-      <div class="row p-3">
-        <div class="col-sm-4">This website will contain all the pertinent information of Megan Kelley's life, rumors and book preferences! Please stay tuned for future updates throughout 2021.</div>
-       
-        
-  
-        <div class="col-sm-4">
-          <img class="img-thumbnail" src="img\Sachi.jpg">
-            <p>Source: https://www.glamour.com/story/megan-fox-opens-up-about-why-she-stopped-drinking-alcohol</p>         
-          </div>
-       
-        <div class="col-sm-4">
-          <img class="img-thumbnail" src="img\Transformers.jpg"></img>
-            <p> Source: https://www.pastemagazine.com/movies/transformers-megan-fox/</p>
+<!-- Assignment Area  -->
+<div id="offerApp" class="container">
+    <div class="row align-items-start">
+      <div class="col col-4">
+        <!-- <p> Information for {{ game.host.visitor }} </p> -->
+        <div class="mb-3 p-2" v-for="g in games" v-on:click="selectGame"
+         :class="['game', {selected: selectedGame && g.id == selectedGame.id}]">
+          <span class="gameHost">{{ g.Host }} vs.</span><br>
+          <span class="gameVisitor">{{ g.Visitor }}</span>
         </div>
-      
-     </div>
+      </div>
 
- </div>
+      <div class="col col-8" v-if="selectedStudent">
+        <h1>Referee Assignments</h1>
+        <form v-on:submit.prevent="postAssignment">
+            <div class="mb-3">
+                <label for="Assignee" class="form-label">Assigned by:<span class="reqd">*</span></label>
+                <input type="text" v-model="assignmentform.Assignee" class="form-control" id="Assignee" required="required">
+              </div>
+
+            <div class="mb-3 form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="status" id="gameStatus" value="beforeGame">
+                <label class="form-check-label" for="gameStatus">Pre-Game</label>
+              </div>
+
+              <div class="mb-3 form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="status" id="gameStatus" value="afterGame">
+                <label class="form-check-label" for="gameStatus">Post-Game</label>
+              </div>
+            
+              <div class="mb-3 form-group">
+                <label for="refereeName">Referee:<span class="reqd">*</span></label></label>
+                <select class="form-control" id="refereeName" required="required">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+      
+        </form>
+
+      </div>
 
     </div>
 
   </div>
+ </main>
+ 
 
-</main>
 </body>
+
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
 <footer>
   <div class="container-fluid">
