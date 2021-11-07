@@ -50,8 +50,8 @@
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 
 <!-- Books Table -->
- <div class="p-2" id="refereesJS">  
-
+ <div class="refereeTable" id="refereesJS">  
+    <br>
     <h1>League Referees</h1>
     <table id="refereeTable" class="table table-hover">
     <thead>
@@ -79,8 +79,8 @@
 
    <!-- Form  -->
    <br>
+   <div id="RefereeFormCSS">
    <form v-on:submit.prevent="postEditReferee" id="refereeForm">
-    <div>
     <fieldset>
       <legend id="form_title"><h3>{{ selectedReferee === null ? "Add " : "Edit " }} Referee</h3></legend>
       <br>
