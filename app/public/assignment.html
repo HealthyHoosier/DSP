@@ -49,6 +49,31 @@
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 <main>
+  <table id="gameTable" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Host Team</th>
+        <th scope="col">Visitor Team</th>
+        <th scope="col">Referees</th>
+        <th scope="col">Assigned by</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr v-for="game in games">
+        <td>{{ game.gameHost }}</td>
+        <td>{{ game.gameVistor }}</td>
+        <td>{{ referee.refereeid }}</td>
+        <td>{{ assignmentform.Assignee }}</td>
+        <td>
+         <button type="button" class="btn btn-outline-secondary btn-sm"
+         v-on:click="selectGameToEdit(game)">Edit</button>
+         <button type="button" class="btn btn-outline-secondary btn-sm"
+         v-on:click="postDeleteGame(game)">Delete</button>
+        </td>
+    </tbody>
+  </table>
+
 <!-- Assignment Area  -->
 <div id="offerApp" class="container">
     <div class="row align-items-start">
@@ -56,7 +81,7 @@
         <!-- <p> Information for {{ game.host.visitor }} </p> -->
         <div class="mb-3 p-2" v-for="g in games" v-on:click="selectGame"
          :class="['game', {selected: selectedGame && g.id == selectedGame.id}]">
-          <span class="gameHost">{{ g.Host }} vs.</span><br>
+          <span class="gameHost">Selected Game: {{ g.Host }} vs.</span><br>
           <span class="gameVisitor">{{ g.Visitor }}</span>
         </div>
       </div>
@@ -85,10 +110,9 @@
                   <option value="">-- Select --</option>
                 </select>
               </div>
-              <p id="msg"></p>
 
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+              <button type="submit" class="btn btn-primary mb-3">Submit</button>
+              <button type="button" class="btn btn-outline-secondary mb-3" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
       
         </form>
 
