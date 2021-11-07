@@ -94,22 +94,13 @@
                 <label for="Assignee" class="form-label">Assigned by:<span class="reqd">*</span></label>
                 <input type="text" v-model="assignmentform.Assignee" class="form-control" id="Assignee" required="required">
               </div>
-
-            <div class="mb-3 form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="status" id="gameStatus" value="beforeGame">
-                <label class="form-check-label" for="gameStatus">Pre-Game</label>
-              </div>
-
-              <div class="mb-3 form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="status" id="gameStatus" value="afterGame">
-                <label class="form-check-label" for="gameStatus">Post-Game</label>
-              </div>
             
-              <div class="mb-3 form-group">
-                <label for="refereeName">Referee:<span class="reqd">*</span></label></label>
-                <select v-model="assignmentform.Referee" id="refereePrefPosrefereeForm">
-                  <option value={{r.refereeFirst}} v-for="r in referee">{{r.refereeFirst && r.refereeLast }}</option>
-                </select>
+              <div class="mb-3 form-group" id="refereesJS">
+                <label for="refereeName">Referee Name: </label>
+                <select v-model="refereeForm.refereeName" name="refereeName" id="refereeName">
+                  <option value={{r.refereeFirst}} v-for="r in referee">{{r.refereeLast}}, {{ r.refereeFirst }}  </option>
+                  <option value="N/A"></option>
+                </select><br><br>
               </div>
 
               <button type="submit" class="btn btn-primary mb-3">Submit</button>
