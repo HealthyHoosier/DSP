@@ -8,6 +8,15 @@ const Game = {
     },
     
     methods: {
+// SELECT GAME IN ASSIGNMENTS
+      selectGame(g) {
+        if (g == this.selectedGame) {
+            return;
+        }
+        this.selectedGame =g;
+        this.referees = [];
+        this.fetchOfferData(this.selectedGame);
+    },
       // GET GAME DATA FOR TABLE
       postGame(evt) {
         if (this.selectedGame === null) {
@@ -62,6 +71,7 @@ const Game = {
           .then( json => {
             console.log("Returned from post:", json);
             this.game = json;
+            
             // RESET
             this.resetGameForm();
           });
@@ -104,9 +114,11 @@ const Game = {
   // Closing Methods ------------------------------------------------------------------------------------
   },
   // Created ------------------------------------------------------------------------------------
-  created() {
+  created(){
         this.fetchGamesData();
     }
+  }
+
   Vue.createApp(Game).mount('#gameJS');
   
   

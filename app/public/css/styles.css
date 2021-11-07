@@ -17,7 +17,7 @@ header{
 .navbar-light .navbar-brand:hover{
     /*TEXT*/
     font-family: "Lucida Console", "Courier New", monospace;
-    color:#990000;
+    color: whitesmoke;
 }
 .navbar-light .navbar-nav .nav-link{
     /*TEXT*/
@@ -48,7 +48,58 @@ body{
     /*COLORS*/
     background-color:#990000;
 }
-
+h1{
+    color: black;
+}
+/*-------------------ALL TABLES SHARE THIS-----------------------------------*/
+.table.table.table-hover {
+    /*COLORS*/
+    border-color: black;
+    color: black;
+    --bs-table-hover-color: yellow;
+    /*BORDER*/
+}
+.btn-outline-secondary {
+    /*COLORS*/
+    color: black;
+    border-color: black;
+    /*PADDING*/
+    margin: 5px;
+}
+.btn-outline-secondary:hover {
+    /*COLORS*/
+    color: yellow;
+    background-color: black;
+    border-color: black;
+    /*PADDING*/
+    padding: 5px;
+}
+th {
+    /*TEXT*/
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: whitesmoke;
+    /*BORDER*/
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+}
+td {
+    /*TEXT*/
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+tr{
+    border: 2px black solid;
+    border-style: groove;
+}
+/*-------------------ALL FORMS SHARE THIS-----------------------------------*/
+form{
+    /*TEXT*/
+    text-align: left;
+    font-family: "Lucida Console", "Courier New", monospace;
+     /*COLORS*/
+    color: black;
+}
 /*---------------------------------------------------FOOTER------------------------------------------------*/
 footer{
     /*TEXT*/
@@ -63,4 +114,13 @@ footer{
     border-width: 2px;
     /*PADDING*/
     padding-top: 10px;
+}
+/*------------------------------------------------REFS PAGE------------------------------------------------*/
+
+#refereeForm{
+    /*ALIGN*/
+    margin: auto;
+    margin-bottom: 10px;
+    width: 50%;
+    border: 3px Black dashed
 }
