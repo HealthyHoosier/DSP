@@ -55,47 +55,79 @@
     <table id="refereeTable" class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Referee Id</th>
         <th scope="col">Referee Name</th>
         <th scope="col">Age</th>
-        <th scope="col">Years of Experience</th>
+        <th scope="col">Preferred Position</th>
+        <th scope="col">Certification Level</th>
+        <th scope="col">Options</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr v-for="referee in referees">
-        <td>{{ referee.refereeid }}</td>
-        <td>{{ referee.refereeName }}</td>
-        <td>{{ referee.age }}</td>
-        <td>{{ referee.yearsExperience }}</td>
+      <tr v-for="r in referee">
+        <td>{{ r.refereeLast }}, {{ r.refereeFirst  }}</td>
+        <td>{{ r.refereeAge }}</td>
+        <td>{{ r.refereePrefPos }}</td>
+        <td>{{ r.refereeCertLevel }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="selectRefereeToEdit(r)">Edit</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="postDeleteReferee(r)">Delete</button>
+        </td>
     </tbody>
   </table>
 
    <!-- Form  -->
    <br>
-   <form v-on:submit.prevent="postNewReferee" id="refereeForm">
+   <form v-on:submit.prevent="postEditReferee" id="refereeForm">
+    <div>
     <fieldset>
-      <legend id="form_title"><h3>{{ selectedRef === null ? "Add " : "Edit " }} Referee</h3></legend>
+      <legend id="form_title"><h3>{{ selectedReferee === null ? "Add " : "Edit " }} Referee</h3></legend>
       <br>
-      <div class="p-2 mb-3">
-        <label for="refereeName" class="form-label">Referee Name</label>
-        <input type="text" v-model="refereeForm.refereeName" class="form-control" id="refereeName">
-      </div>
-      <div class="p-2 mb-3">
-        <label for="age" class="form-label">Age</label>
-        <input type="number" v-model="refereeForm.age" class="form-control" id="age">
-      </div>
-      <div class="p-2 mb-3">
-        <label for="yearsExperience" class="form-label">Years of Experience</label>
-        <input type="text" v-model="refereeForm.yearsExperience" class="form-control" id="yearsExperience">
-      </div>
+      
+      <label for="refereeFirst">First Name: </label>
+      <input type="text" v-model="refereeForm.refereeFirst" name="refereeFirst" id="refereeFirst" required><br><br>
+
+      <label for="refereeLast">Last Name: </label>
+      <input type="text" v-model="refereeForm.refereeLast" name="refereeLast" id="refereeLast" required><br><br>
+
+      <label for="refereeAge">Age: </label>
+      <input type="text" v-model="refereeForm.refereeAge" name="refereeAge" id="refereeAge" ><br><br>
+
+      <label for="refereePrefPos">Preferred Position: </label>
+      <select v-model="refereeForm.refereePrefPos" name="refereePrefPos" id="refereePrefPos">
+        <option value="Head Referee">Head Referee</option>
+        <option value="Lineman">Lineman</option>
+        <option value="Auxilary">Auxilary</option>
+        <option value="Other">Other</option>
+      </select><br><br>
+
+      <label for="refereeCertLevel">Certification Level: </label>
+      <select v-model="refereeForm.refereeCertLevel" name="refereeCertLevel" id="refereeCertLevel">
+        <option value="AAA">AAA</option>
+        <option value="AA">AA</option>
+        <option value="A">A</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B">B</option>
+        <option value="B-">B-</option>
+        <option value="Other">Other</option>
+      </select><br><br>
+
     </fieldset>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add " : "Edit " }} Referee</button>
+    <button type="button" class="btn btn-outline-secondary" v-if="selectedReferee" v-on:click="resetRefereeForm">Cancel</button>
+  </div>
+  
   </form>
 </div>
 </main>
 
+<!---------------------------------------------------SOME SCRIPTS---------------------------------------------------------->
+<script src="js/tablesort.min.js"></script>
+  <script> 
+    new Tablesort(document.getElementById('refereeTable'));
+  </script>
+<script src="js/referees.js"></script>
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
 <footer>
   <div class="container-fluid">
