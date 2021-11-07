@@ -6,14 +6,16 @@ const Referee = {
       selectedReferee: null,
     }
   },
+
+  computed: {},
   
   methods: {
     // GET REFEREE DATA FOR TABLE
     postReferee(evt) {
       if (this.selectedReferee === null) {
-          this.postNewReferee(evt);
+        this.postNewReferee(evt);
       } else {
-          this.postEditReferee(evt);
+        this.postEditReferee(evt);
       }
     },
     fetchRefereeData(r) {
@@ -30,7 +32,6 @@ const Referee = {
     // POST A NEW REFEREE TO DATABASE
     postNewReferee(evt) {
       console.log("Creating!", this.refereeForm);
-
       fetch('api/referees/create.php', {
           method:'POST',
           body: JSON.stringify(this.refereeForm),
@@ -68,7 +69,7 @@ const Referee = {
     },
     // DELETE A REFEREE FROM THE DATABASE
     postDeleteReferee(o) {
-      if (!confirm("Are you sure you want to delete this Referee"+o.title+"?")) {
+      if (!confirm("Are you sure you want to delete "+o.refereeLast+", "+o.refereeFirst+"?")) {
         return;
       }
       console.log("Delete", o);
@@ -101,11 +102,10 @@ const Referee = {
       this.refereeForm = {};
     }
   },
-// Closing Methods ------------------------------------------------------------------------------------
-},
-// Created ------------------------------------------------------------------------------------
-created() {
-      this.fetchRefereesData();
-  }
-Vue.createApp(Referee).mount('#refereesJS');
 
+  created() {
+      this.fetchRefereeData();
+  }
+}
+
+Vue.createApp(Referee).mount('#refereesJS');

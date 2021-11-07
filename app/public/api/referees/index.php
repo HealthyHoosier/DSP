@@ -5,7 +5,7 @@ require 'class/DbConnection.php';
 $db = DbConnection::getConnection();
 
 // Step 2
-$sql = 'SELECT * FROM referee';
+$sql = 'SELECT * FROM referees';
 $vars = [];
 
 $stmt = $db->prepare($sql);
