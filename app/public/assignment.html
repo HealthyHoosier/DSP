@@ -81,13 +81,11 @@
             
               <div class="mb-3 form-group">
                 <label for="refereeName">Referee:<span class="reqd">*</span></label></label>
-                <select class="form-control" id="refereeName" required="required">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                <select class="form-control" id="sel" required="required">
+                  <option value="">-- Select --</option>
                 </select>
               </div>
+              <p id="msg"></p>
 
               <button type="submit" class="btn btn-primary">Submit</button>
               <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
