@@ -23,15 +23,16 @@ $db = DbConnection::getConnection();
 
 // Step 2
 $stmt = $db->prepare(
-  'INSERT INTO referees(firstName,lastName, DOB)
-VALUES (?, ?, ?)'
+  'INSERT INTO referees(refereeFirst, refereeLast, refereeAge, refereePrefPos, refereeCertLevel)
+VALUES (?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['DOB']
-  
+  $_POST['refereeFirst'],
+  $_POST['refereeLast'],
+  $_POST['refereeAge'],
+  $_POST['refereePrefPos'],
+  $_POST['refereeCertLevel'],
 ]);
 
 // Step 4: Output
