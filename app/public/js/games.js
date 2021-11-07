@@ -8,6 +8,15 @@ const Game = {
     },
     
     methods: {
+// SELECT GAME IN ASSIGNMENTS
+      selectGame(g) {
+        if (g == this.selectedGame) {
+            return;
+        }
+        this.selectedGame =g;
+        this.referees = [];
+        this.fetchOfferData(this.selectedGame);
+    },
       // GET GAME DATA FOR TABLE
       postGame(evt) {
         if (this.selectedGame === null) {
