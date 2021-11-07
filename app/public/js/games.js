@@ -110,15 +110,17 @@ const Game = {
         this.selectedGame = null;
         this.gameForm = {};
       }
-    },
+   
+    
+    
   // Closing Methods ------------------------------------------------------------------------------------
-  },
+},
   // Created ------------------------------------------------------------------------------------
   created(){
         this.fetchGamesData();
     }
+  
   }
-
   Vue.createApp(Game).mount('#gameJS');
   
   

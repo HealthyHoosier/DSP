@@ -66,7 +66,7 @@
 
     <tbody>
       <tr v-for="r in referee">
-        <td>{{ r.refereeLast }}, {{ r.refereeFirst  }}</td>
+        <td>{{ r.refereeLast }}, {{ r.refereeFirst }}</td>
         <td>{{ r.refereeAge }}</td>
         <td>{{ r.refereePrefPos }}</td>
         <td>{{ r.refereeCertLevel }}</td>
@@ -80,7 +80,7 @@
    <!-- Form  -->
    <br>
    <div id="RefereeFormCSS">
-   <form v-on:submit.prevent="postEditReferee" id="refereeForm">
+   <form v-on:submit.prevent="postReferee(r)" id="refereeForm">
     <fieldset>
       <legend id="form_title"><h3>{{ selectedReferee === null ? "Add " : "Edit " }} Referee</h3></legend>
       <br>

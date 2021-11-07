@@ -96,10 +96,11 @@
               </div>
             
               <div class="mb-3 form-group" id="refereesJS">
-                <label for="refereeName">Referee:<span class="reqd">*</span></label></label>
-                <select v-model="assignmentform.Referee">
-                  <option value={{r.refereeFirst}} v-for="r in referee">{{r.refereeFirst }}</option>
-                </select>
+                <label for="refereeName">Referee Name: </label>
+                <select v-model="refereeForm.refereeName" name="refereeName" id="refereeName">
+                  <option value={{r.refereeFirst}} v-for="r in referee">{{r.refereeLast}}, {{ r.refereeFirst }}  </option>
+                  <option value="N/A"></option>
+                </select><br><br>
               </div>
 
               <button type="submit" class="btn btn-primary mb-3">Submit</button>
