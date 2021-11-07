@@ -49,10 +49,9 @@
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 
+<!-- Books Table -->
+ <div class="p-2" id="refereesJS">  
 
-<!-- Referees Table -->
-<main>
- <div class="p-2" id="refereeTable">  
     <h1>League Referees</h1>
     <table id="refereeTable" class="table table-hover">
     <thead>
@@ -73,23 +72,25 @@
     </tbody>
   </table>
 
-   <!-- New Referee Form  -->
-   <form v-on:submit.prevent="postNewReferee">
-    <div class="p-2 mb-3">
-      <label for="refereeName" class="form-label">Referee Name</label>
-      <input type="text" v-model="refereeForm.refereeName"
-       class="form-control" id="refereeName">
-    </div>
-    <div class="p-2 mb-3">
+   <!-- Form  -->
+   <br>
+   <form v-on:submit.prevent="postNewReferee" id="refereeForm">
+    <fieldset>
+      <legend id="form_title"><h3>{{ selectedRef === null ? "Add " : "Edit " }} Referee</h3></legend>
+      <br>
+      <div class="p-2 mb-3">
+        <label for="refereeName" class="form-label">Referee Name</label>
+        <input type="text" v-model="refereeForm.refereeName" class="form-control" id="refereeName">
+      </div>
+      <div class="p-2 mb-3">
         <label for="age" class="form-label">Age</label>
-        <input type="number" v-model="refereeForm.age"
-         class="form-control" id="age">
+        <input type="number" v-model="refereeForm.age" class="form-control" id="age">
       </div>
       <div class="p-2 mb-3">
         <label for="yearsExperience" class="form-label">Years of Experience</label>
-        <input type="text" v-model="refereeForm.yearsExperience"
-         class="form-control" id="yearsExperience">
+        <input type="text" v-model="refereeForm.yearsExperience" class="form-control" id="yearsExperience">
       </div>
+    </fieldset>
     
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

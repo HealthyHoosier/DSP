@@ -51,9 +51,9 @@
 <main>
 <!-- Game Table  -->
 
-  <div class="p-2" id="refereeTable">  
+  <div class="p-2" id="gameJS">  
      <h1>Hoosier Games</h1>
-     <table id="refereeTable" class="table table-hover">
+     <table id="gameTable" class="table table-hover">
      <thead>
        <tr>
          <th scope="col">Host Team</th>
@@ -65,18 +65,24 @@
      </thead>
  
      <tbody>
-       <tr v-for="referee in referees">
+       <tr v-for="game in games">
          <td>{{ game.gameHost }}</td>
          <td>{{ game.gameVistor }}</td>
          <td>{{ referee.refereeid }}</td>
          <td>{{ game.gameDate }}</td>
          <td>{{ game.score }}</td>
+         <td>
+          <button type="button" class="btn btn-outline-secondary btn-sm"
+          v-on:click="selectGameToEdit(game)">Edit</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm"
+          v-on:click="postDeleteGame(game)">Delete</button>
+         </td>
      </tbody>
    </table>
  
     <!-- Game Form  -->
     <h3>{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
-    <form v-on:submit.prevent="postGame">
+    <form v-on:submit.prevent="postNewGame">
      <div class="p-2 mb-3">
        <label for="gameHost" class="form-label">Host Team</label>
        <input type="text" v-model="gameForm.gameHost"
