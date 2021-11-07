@@ -62,6 +62,7 @@ const Game = {
           .then( json => {
             console.log("Returned from post:", json);
             this.game = json;
+            
             // RESET
             this.resetGameForm();
           });
@@ -104,9 +105,11 @@ const Game = {
   // Closing Methods ------------------------------------------------------------------------------------
   },
   // Created ------------------------------------------------------------------------------------
-  created() {
+  created(){
         this.fetchGamesData();
     }
+  }
+
   Vue.createApp(Game).mount('#gameJS');
   
   

@@ -6,10 +6,10 @@ $.getJSON(refereeTable, function (data) {
             });
         });
 
-        // SHOW SELECTED VALUE.
- $('#sel').change(function () {
-        $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
-    });
+// POST TO TABLE
+
+
+
 
 
     
