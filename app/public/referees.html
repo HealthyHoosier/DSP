@@ -123,7 +123,8 @@
         <option value="B">B</option>
         <option value="B-">B-</option>
         <option value="Other">Other</option>
-      </select>
+      </select><br>
+   
       <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add " : "Edit " }} Referee</button>
       <button type="button" class="btn btn-outline-secondary" v-if="selectedReferee" v-on:click="resetRefereeForm">Cancel</button>
   
@@ -133,7 +134,7 @@
   </div>
 
 </div>
-</main>
+
 
 <!---------------------------------------------------SOME SCRIPTS---------------------------------------------------------->
 <script src="js/one.js"></script>
