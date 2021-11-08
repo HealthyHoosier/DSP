@@ -18,6 +18,9 @@
   <script src="https://unpkg.com/vue@next"></script>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
+  <!-- Plug in from http://tristen.ca/tablesort/demo/  -->
+  <script src='js/tablesort.min.js'></script>
+
   <!--TITLE-->
   <title>Referee Assignment</title>
 </head>
@@ -53,85 +56,49 @@
   <table id="assignmentTable" class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Host Team</th>
-        <th scope="col">Visitor Team</th>
+        <th scope="col">Assignment ID</th>
+        <th scope="col">Matchup</th>
+        <th scope="col">Free SPACE</th>
         <th scope="col">Referees</th>
         <th scope="col">Assigned by</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr v-for="a in assignments">
-        <td>{{ a.gameHost }}</td>
-        <td>{{ a.gameVistor }}</td>
+      <tr v-for="a in assignment">
+        <td>{{ a.gameid }}</td>
+        <td>{{ a.gameHost }} vs. {{a.gameVisitor}}</td>
+        <td> </td>
         <td>{{ a.referee }}</td>
         <td>{{ a.assignee }}</td>
         <td>
-         <button type="button" class="btn btn-outline-secondary btn-sm"
-         v-on:click="selectAssignmentToEdit(assignment)">Edit</button>
-         <button type="button" class="btn btn-outline-secondary btn-sm"
-         v-on:click="postDeleteAssignment(assignment)">Delete</button>
+         <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="selectAssignmentToEdit(assignment)">Edit</button>
+         <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="postDeleteAssignment(assignment)">Delete</button>
         </td>
     </tbody>
   </table>
 
-<!-- Assignment Form  -->
-<br>
-<div class="container-fluid">
-  <div class="row align-items-start">
-  <form v-on:submit.prevent="postAssignment(a)" id="assignmentForm">
-    <fieldset>
+  <br>
+  <!---Assignment Form--->
+  <div class="container-fluid">
+    <form v-on:submit.prevent="postAssignment(a)" id="assignmentForm">
+      <fieldset>
       <legend id="form_title"><h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Record</h3></legend>
-      <br>
- 
-<!-- Select Game to Assign Referee  -->
-<div class="col col-4 form-group" id="gameJS">
-        <label for="game">Select Game: </label>
-        <select v-model="assignmentForm.game" name="game" id="game">
-          <option value={{g.gameid}} v-for="g in games">{{g.gameHost}} vs. {{g.gameVisitor}}</option>
-          <option value="N/A"></option>
-        </select>
-      </div>
+      <br>    
+    
+      </form>
 
-<!-- Assign Referees for that Game  -->
-      <div class="col col-8" id="refereesJS">
-        <h1>Referee Assignments</h1>
-        <div class="mb-3">
-                <label for="assignee" class="form-label">Assigned by:<span class="reqd">*</span></label>
-                <input type="text" v-model="assignmentForm.assignee" name="assignee" id="assignee" required>
-              </div>
-            
-              <div class="mb-3 form-group" id="refereesJS">
-                <label for="referee">Referee Name: </label>
-                <select v-model="assignmentForm.referee" name="referee" id="referee">
-                  <option value={{r.refereeFirst}} v-for="r in referee">{{r.refereeLast}}, {{ r.refereeFirst }}</option>
-                  <option value="N/A"></option>
-                </select>
-                <br><br>
-              </div>
-
-              <button type="submit" class="btn btn-primary mb-3">Submit</button>
-              <button type="button" class="btn btn-outline-secondary mb-3" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
-      
-        </form>
-
-      </div>
-    </div>
-    </div>
-
+  
   </div>
-</div>
- </main>
- 
- <!-- Bootstrap Bundle with Popper -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
- <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
- <script src="js/games.js"></script>
- <script src="js/referees.js"></script>
- <script src="js/assignment.js"></script>
- <!-- Plug in from http://tristen.ca/tablesort/demo/  -->
- <script>
+</div>
+</main>
+ 
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="js/assignment.js"></script>
+<script>
   new Tablesort(document.getElementById('assignmentTable'));
 </script>
 
