@@ -137,6 +137,8 @@ footer{
     width: 50%;
     border: 3px Black dashed
 }
+
+
 /*------------------------------------------------GAMES PAGE------------------------------------------------*/
 #gameForm{
     /*ALIGN*/
@@ -147,4 +149,5 @@ footer{
 }
 #center-me{
     text-align: center;
+
 }
