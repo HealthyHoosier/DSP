@@ -30,7 +30,7 @@ methods: {
 
   // POST A NEW ASSIGNMENT TO DATABASE
   postNewAssignment(evt) {
-    console.log("Creating", this.refereeForm);
+    console.log("Creating", this.assignmentForm);
 
     fetch('api/assignment/create.php', {
         method:'POST',
