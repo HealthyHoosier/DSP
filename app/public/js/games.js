@@ -74,6 +74,7 @@ const Game = {
       if (!confirm("Are you sure you want to delete this game with " +o.gameHost+ " against "+o.gameVisitor+"?")) {
         return;
       }
+      
       console.log("Delete", o);
     
       fetch('api/games/delete.php', {
