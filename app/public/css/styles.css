@@ -72,7 +72,7 @@ h1{
     background-color: black;
     border-color: black;
     /*PADDING*/
-    padding: 5px;
+    margin: 5px;
 }
 th {
     /*TEXT*/
@@ -100,6 +100,20 @@ form{
      /*COLORS*/
     color: black;
 }
+button.btn.btn-primary{
+    color: yellow;
+    background-color: black;
+    border-color: black;
+    /*PADDING*/
+    margin: 5px;
+}
+button.btn.btn-primary:hover{
+    color: black;
+    background-color: green;
+    border-color: black;
+    /*PADDING*/
+    margin: 5px;
+}
 /*---------------------------------------------------FOOTER------------------------------------------------*/
 footer{
     /*TEXT*/
@@ -116,11 +130,21 @@ footer{
     padding-top: 10px;
 }
 /*------------------------------------------------REFS PAGE------------------------------------------------*/
-
 #refereeForm{
     /*ALIGN*/
     margin: auto;
     margin-bottom: 10px;
     width: 50%;
     border: 3px Black dashed
+}
+/*------------------------------------------------GAMES PAGE------------------------------------------------*/
+#gameForm{
+    /*ALIGN*/
+    margin: auto;
+    margin-bottom: 10px;
+    width: 50%;
+    border: 3px Black dashed
+}
+#center-me{
+    text-align: center;
 }
