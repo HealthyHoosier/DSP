@@ -27,11 +27,11 @@ $db = DbConnection::getConnection();
 
 // Step 2
 $stmt = $db->prepare(
-  'DELETE FROM games WHERE gameid = ?'
+  'DELETE FROM assignments WHERE assignmentid = ?'
 );
 $stmt->execute([
-    $_POST['gameid']
+    $_POST['assignmentid']
   ]);
 
 header('HTTP/1.1 303 See Other');
-header('Location: ../games/');
+header('Location: ../assignment/');

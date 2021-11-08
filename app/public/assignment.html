@@ -49,7 +49,8 @@
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 <main>
-  <table id="gameTable" class="table table-hover">
+<div id="assignmentJS">
+  <table id="assignmentTable" class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Host Team</th>
@@ -60,47 +61,53 @@
     </thead>
 
     <tbody>
-      <tr v-for="game in games">
-        <td>{{ game.gameHost }}</td>
-        <td>{{ game.gameVistor }}</td>
-        <td>{{ referee.refereeid }}</td>
-        <td>{{ assignmentform.Assignee }}</td>
+      <tr v-for="a in assignments">
+        <td>{{ a.gameHost }}</td>
+        <td>{{ a.gameVistor }}</td>
+        <td>{{ a.referee }}</td>
+        <td>{{ a.assignee }}</td>
         <td>
          <button type="button" class="btn btn-outline-secondary btn-sm"
-         v-on:click="selectGameToEdit(game)">Edit</button>
+         v-on:click="selectAssignmentToEdit(assignment)">Edit</button>
          <button type="button" class="btn btn-outline-secondary btn-sm"
-         v-on:click="postDeleteGame(game)">Delete</button>
+         v-on:click="postDeleteAssignment(assignment)">Delete</button>
         </td>
     </tbody>
   </table>
 
-<!-- Game Area  -->
-<div id="offerApp" class="container">
-    <div class="row align-items-start">
-      <div class="col col-4">
-        <!-- <p> Information for each game </p> -->
-      
-        <div v-for="g in games" v-on:click="selectGame(s)"
-         :class="['games', {selected: selectedGame && g.gameid == selectedGame.id}]">
-          <span class="gameHost">Selected Game: {{ g.gameHost }} vs.</span><br>
-          <span class="gameVisitor">{{ g.gameVisitor }}</span>
-        </div>
+<!-- Assignment Form  -->
+<br>
+<div class="container-fluid">
+  <div class="row align-items-start">
+  <form v-on:submit.prevent="postAssignment(a)" id="assignmentForm">
+    <fieldset>
+      <legend id="form_title"><h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Record</h3></legend>
+      <br>
+ 
+<!-- Select Game to Assign Referee  -->
+<div class="col col-4 form-group" id="gameJS">
+        <label for="game">Select Game: </label>
+        <select v-model="assignmentForm.game" name="game" id="game">
+          <option value={{g.gameid}} v-for="g in games">{{g.gameHost}} vs. {{g.gameVisitor}}</option>
+          <option value="N/A"></option>
+        </select>
       </div>
 
-      <div class="col col-8" v-if="selectedGame">
+<!-- Assign Referees for that Game  -->
+      <div class="col col-8" id="refereesJS">
         <h1>Referee Assignments</h1>
-        <form v-on:submit.prevent="postAssignment">
-            <div class="mb-3">
-                <label for="Assignee" class="form-label">Assigned by:<span class="reqd">*</span></label>
-                <input type="text" v-model="assignmentform.Assignee" class="form-control" id="Assignee" required="required">
+        <div class="mb-3">
+                <label for="assignee" class="form-label">Assigned by:<span class="reqd">*</span></label>
+                <input type="text" v-model="assignmentForm.assignee" name="assignee" id="assignee" required>
               </div>
             
               <div class="mb-3 form-group" id="refereesJS">
-                <label for="refereeName">Referee Name: </label>
-                <select v-model="refereeForm.refereeName" name="refereeName" id="refereeName">
-                  <option value={{r.refereeFirst}} v-for="r in referee">{{r.refereeLast}}, {{ r.refereeFirst }}  </option>
+                <label for="referee">Referee Name: </label>
+                <select v-model="assignmentForm.referee" name="referee" id="referee">
+                  <option value={{r.refereeFirst}} v-for="r in referee">{{r.refereeLast}}, {{ r.refereeFirst }}</option>
                   <option value="N/A"></option>
-                </select><br><br>
+                </select>
+                <br><br>
               </div>
 
               <button type="submit" class="btn btn-primary mb-3">Submit</button>
@@ -109,10 +116,11 @@
         </form>
 
       </div>
-
+    </div>
     </div>
 
   </div>
+</div>
  </main>
  
  <!-- Bootstrap Bundle with Popper -->
@@ -122,6 +130,11 @@
  <script src="js/games.js"></script>
  <script src="js/referees.js"></script>
  <script src="js/assignment.js"></script>
+ <!-- Plug in from http://tristen.ca/tablesort/demo/  -->
+ <script>
+  new Tablesort(document.getElementById('assignmentTable'));
+</script>
+
 </body>
 
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->

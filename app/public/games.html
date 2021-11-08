@@ -49,67 +49,72 @@
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 <main>
-<!-- Game Table  -->
-
+  <!-- Game Table  -->
   <div class="p-2" id="gameJS">  
      <h1>Hoosier Games</h1>
      <table id="gameTable" class="table table-hover">
      <thead>
        <tr>
          <th scope="col">Host Team</th>
-         <th scope="col">Visitor Team</th>
-         <th scope="col">Referees</th>
+         <th scope="col">Visiting Team</th>
          <th scope="col">Game Date</th>
-         <th scope="col">Score</th>
+         <th scope="col">Type</th>
+         <th scope="col">Options</th>
        </tr>
      </thead>
  
      <tbody>
-       <tr v-for="game in games">
-         <td>{{ game.gameHost }}</td>
-         <td>{{ game.gameVistor }}</td>
-         <td>{{ referee.refereeid }}</td>
-         <td>{{ game.gameDate }}</td>
-         <td>{{ game.score }}</td>
+       <tr v-for="g in game">
+         <td>{{ g.gameHost }}</td>
+         <td>{{ g.gameVisitor }}</td>
+         <td>{{ g.gameDate }}</td>
+         <td>{{ g.gameTime }}</td>
+         <td>{{ g.gameType }}</td>
          <td>
-          <button type="button" class="btn btn-outline-secondary btn-sm"
-          v-on:click="selectGameToEdit(game)">Edit</button>
-          <button type="button" class="btn btn-outline-secondary btn-sm"
-          v-on:click="postDeleteGame(game)">Delete</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="selectGameToEdit(g)">Edit</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="postDeleteGame(g)">Delete</button>
          </td>
      </tbody>
    </table>
  
     <!-- Game Form  -->
-    <h3>{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
-    <form v-on:submit.prevent="postNewGame">
-     <div class="p-2 mb-3">
-       <label for="gameHost" class="form-label">Host Team</label>
-       <input type="text" v-model="gameForm.gameHost"
-        class="form-control" id="gameHost">
-     </div>
-     <div class="p-2 mb-3">
-         <label for="gameVistor" class="form-label">Visiting Team</label>
-         <input type="text" v-model="gameForm.gameVistor"
-          class="form-control" id="gameVistor">
-       </div>
-       <div class="p-2 mb-3">
-         <label for="refereeid" class="form-label">Referee</label>
-         <input type="text" v-model="refereeForm.refereeid"
-          class="form-control" id="refereeid">
-       </div>
-
-       <div class="p-2 mb-3">
-        <label for="gameDate" class="form-label">Game Date</label>
-        <input type="number" v-model="gameForm.gameDate"
-         class="form-control" id="gameDate">
-      </div>
+  <form v-on:submit.prevent="postGame(g)" id="gameForm">
+    <h3 id="center-me">{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
+    <fieldset>
+      <label for="gameHost" class="form-label">Host Team</label>
+      <input type="text" v-model="gameForm.gameHost" class="form-control" id="gameHost">
      
-     <button type="submit" class="btn btn-primary">Submit</button>
-   </form>
- </div>
- </main>
- 
+      <label for="gameVisitor" class="form-label">Visiting Team</label>
+      <input type="text" v-model="gameForm.gameVisitor" class="form-control" id="gameVisitor">
+       
+      <label for="gameDate" class="form-label">Game Date</label>
+      <input type="date" v-model="gameForm.gameDate" class="form-control" id="gameDate">
+
+      <label for="gameTime" class="form-label">Game Time</label>
+      <input type="time" v-model="gameForm.gameTime" class="form-control" id="gameTime">
+      
+      <label for="gameType">Game Type </label>
+      <select v-model="gameForm.gameType" name="gameType" id="gameType">
+        <option value="U-8">U-8</option>
+        <option value="U-16">U-16</option>
+        <option value="High-School">High-School</option>
+        <option value="College">College</option>
+        <option value="Professional">Professional</option>
+        <option value="Recreational">Recreational</option>
+        <option value="Other">Other</option>
+      </select><br><br>
+    </fieldset>
+    <br>
+    <br>
+    
+    <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add " : "Edit " }} Game</button>
+    <button type="button" class="btn btn-outline-secondary" v-if="selectedGame" v-on:click="resetGameForm">Cancel</button>
+    
+  </form>
+  </div>
+</main>
+
+<script src="js/games.js"></script>
 
 </body>
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
