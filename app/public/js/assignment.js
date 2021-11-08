@@ -2,8 +2,7 @@ const Assignment = {
   data() {
     return {
       "assignment":[],
-      "referee":[],
-    assignmentForm:{},
+      assignmentForm:{},
       selectedAssignment: null,
     }
   },
