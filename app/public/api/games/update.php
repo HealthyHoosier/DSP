@@ -41,12 +41,12 @@ $stmt = $db->prepare(
 );
 
 $stmt->execute([
-    $_POST['gameid'],
     $_POST['gameHost'],
     $_POST['gameVisitor'],
     $_POST['gameDate'],
     $_POST['gameTime'],
-    $_POST['gameType']
+    $_POST['gameType'],
+    $_POST['gameid']
   ]);
 
 // Get auto-generated PK from DB
