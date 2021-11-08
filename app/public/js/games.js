@@ -68,7 +68,7 @@ const Game = {
           // RESET
           this.resetGameForm();
         });
-    },
+      },
     // DELETE A GAME FROM THE DATABASE
     postDeleteGame(o) {
       if (!confirm("Are you sure you want to delete this game with " +o.gameHost+ " against "+o.gameVisitor+"?")) {
@@ -106,7 +106,7 @@ const Game = {
     }
   },
 
-  created(){
+  created() {
     this.fetchGamesData();
   }
 }
