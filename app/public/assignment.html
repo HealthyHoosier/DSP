@@ -58,10 +58,10 @@
   <table id="assignmentTable" class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Assignment ID</th>
-        <th scope="col">Referee ID</th>
-        <th scope="col">Game ID</th>
-        <th scope="col">Assigned Referee</th>
+
+        <th scope="col">Assignment Id</th>
+        <th scope="col">Referee Id</th>
+        <th scope="col">Game Id</th>
         <th scope="col">Actions</th>
 
       </tr>
@@ -72,7 +72,6 @@
         <td>{{ a.assignmentid }}</td>
         <td>{{ a.refereeid }}</td>
         <td>{{ a.gameid }}</td>
-        <td>{{ a.referee }}</td>
         <td>
         <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="postDeleteAssignment(a)">Delete</button>
         </td>
@@ -120,7 +119,7 @@
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
 <footer>
   <a href="#" class="fa fa-facebook" id="socialmedia"></a>
-<a href="#" class="fa fa-twitter" id="socialmedia"></a>
-<a href="#" class="fa fa-youtube" id="socialmedia"></a>
+  <a href="#" class="fa fa-twitter" id="socialmedia"></a>
+  <a href="#" class="fa fa-youtube" id="socialmedia"></a>
 </footer>
 </html>
