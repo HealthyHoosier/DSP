@@ -77,7 +77,8 @@
 
 <!-- Assignment Form  -->
 <br>
-<div id="RefereeFormCSS">
+<div class="container-fluid">
+  <div class="row align-items-start">
   <form v-on:submit.prevent="postAssignment(a)" id="assignmentForm">
     <fieldset>
       <legend id="form_title"><h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Record</h3></legend>
@@ -93,7 +94,7 @@
       </div>
 
 <!-- Assign Referees for that Game  -->
-      <div class="col col-8">
+      <div class="col col-8" id="refereesJS">
         <h1>Referee Assignments</h1>
         <div class="mb-3">
                 <label for="assignee" class="form-label">Assigned by:<span class="reqd">*</span></label>
@@ -115,7 +116,7 @@
         </form>
 
       </div>
-
+    </div>
     </div>
 
   </div>
@@ -129,6 +130,10 @@
  <script src="js/games.js"></script>
  <script src="js/referees.js"></script>
  <script src="js/assignment.js"></script>
+ <!-- Plug in from http://tristen.ca/tablesort/demo/  -->
+ <script>
+  new Tablesort(document.getElementById('assignmentTable'));
+</script>
 
 </body>
 
