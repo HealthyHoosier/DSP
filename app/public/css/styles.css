@@ -102,6 +102,16 @@ tr{
     border: 2px black solid;
     border-style: groove;
 }
+/*-------------------DOWNLOAD BUTTON-----------------------------------*/
+.csv{
+    /*COLORS*/
+    color: yellow;
+    background-color: black;
+    border-color: black;
+    /*PADDING*/
+    margin: 5px;
+    width: 10%;
+}
 /*-------------------ALL FORMS SHARE THIS-----------------------------------*/
 form{
     /*TEXT*/
