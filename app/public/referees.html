@@ -10,6 +10,7 @@
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 
   <!--JAVASCRIPT-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
@@ -49,24 +50,26 @@
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 
-<!-- Books Table -->
+<!-- Referees Table -->
  <div class="refereeTable" id="refereesJS">  
     <br>
     <h1>League Referees</h1>
     <table id="refereeTable" class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Referee Name</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
         <th scope="col">Age</th>
         <th scope="col">Preferred Position</th>
         <th scope="col">Certification Level</th>
-        <th scope="col">Options</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <tr v-for="r in referee">
-        <td>{{ r.refereeLast }}, {{ r.refereeFirst }}</td>
+        <td >{{ r.refereeFirst }}</td>
+        <td>{{ r.refereeLast }}</td>
         <td>{{ r.refereeAge }}</td>
         <td>{{ r.refereePrefPos }}</td>
         <td>{{ r.refereeCertLevel }}</td>
@@ -76,10 +79,10 @@
         </td>
     </tbody>
   </table>
-  <button type="button" onclick="tableToCSV()">
+  <button type="button" onclick="tableToCSV()" id="csv">
+    <span class="bi bi-download"></span>
     Download CSV
 </button>
- 
 
    <!-- Form  -->
    <br>
