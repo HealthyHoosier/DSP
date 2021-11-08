@@ -85,7 +85,7 @@
      </tbody>
    </table>
   
-   <button type="button" onclick="tableToCSV()" class="csv">
+   <button type="button" onclick="tableToCSV1()" class="csv">
     <span class="bi bi-download"></span>
     Download CSV
   </button>
@@ -128,6 +128,10 @@
 
 <script src="js/one.js"></script>
 <script src="js/export.js"></script>
+<script src="js/tablesort.min.js"></script>
+<script>
+  new Tablesort(document.getElementById('assignmentTable'));
+</script>
 
 
 </body>
