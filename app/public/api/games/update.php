@@ -32,11 +32,11 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
   'UPDATE games SET
-    gameid = ?,
     gameHost = ?,
     gameVisitor = ?,
     gameDate = ?,
-    refereeid = ?,
+    gameTime = ?,
+    gameType = ?
   WHERE gameid = ?'
 );
 
@@ -45,7 +45,8 @@ $stmt->execute([
     $_POST['gameHost'],
     $_POST['gameVisitor'],
     $_POST['gameDate'],
-    $_POST['refereeid']
+    $_POST['gameTime'],
+    $_POST['gameType']
   ]);
 
 // Get auto-generated PK from DB
