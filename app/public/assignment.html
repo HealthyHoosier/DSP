@@ -81,10 +81,10 @@
   <!---Assignment Form--->
   <div id="">
     <form class="" v-on:submit.prevent="postAssignment(a)" id="assignmentForm">
-      <legend id="form_title"><h3 id="center-me">{{ selectedAssignment === null ? "Add " : "Edit " }} Referee Assignment</h3></legend>
+      <legend id="form_title"><h3 id="center-me"><b>{{ selectedAssignment === null ? "Add " : "Edit " }} Referee Assignment</b></h3></legend>
       <br>
       
-      <label for="gameHost">Available Matches: </label>
+      <label class="mb-3 p-2" for="gameHost">Available Matches: </label>
       <select v-model="assignmentForm.matchup" name="gameHost" id="gameHost">
       <option v-bind:value="g.gameid" v-for="g in game">{{ g.gameHost }} VS. {{ g.gameVisitor }} at {{ g.gameLocation }}</option>
       <option value=""></option>
@@ -95,11 +95,12 @@
       <label for="refereeLast">Referee Name: </label>
       <select v-model="assignmentForm.refereeId" name="refereeLast" id="refereeLast">
       <option v-bind:value="r.refereeid" v-for="r in referee">{{ r.refereeFirst }} {{ r.refereeLast }}</option>
-      </select>
-      <br>
 
+      </select>
       <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</button>
       <button type="button" class="btn btn-outline-secondary" v-if="selectedAssignment" v-on:click="resetAssignmentForm">Cancel</button>
+
+
     </form>
   </div>
 </div>
