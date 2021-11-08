@@ -89,6 +89,8 @@ th {
     text-align: center;
     font: 16px/1.4 'BentonSansCondRegular', Arial, sans-serif;
     color: black;
+    font-weight: 700;
+
     
     /*BORDER*/
     border-top: 2px black solid;

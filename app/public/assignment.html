@@ -27,11 +27,13 @@
 
 <!----------------------------------------------------NAVBAR---------------------------------------------------------------> 
 <body>  
-<header>
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
     <div class="container-fluid">
       <!--COMPANY NAME-->
-      <h1 class="navbar-brand" id=""><b><i>Indiana Soccer Referees</i></b></h1>
+      
+      <h1 class="navbar-brand"><img class=".img-responsive" src="img\IndianaSoccer.png" id="navimg"> </h1>
+  
       
       <!--BUTTON TO EXPAND COLLAPSED NAVBAR-->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,18 +50,19 @@
         </div>
       </div>
     </div>
-  </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
-<div id="oneJS">
+<div class="mb-3 p-4 assignmentTable"id="oneJS">
+  <h1><b>Referee Assignment</b></h1>
   <table id="assignmentTable" class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Assignment Id</th>
-        <th scope="col">Referee Id</th>
-        <th scope="col">Game Id</th>
+        <th scope="col">Assignment ID</th>
+        <th scope="col">Referee ID</th>
+        <th scope="col">Game ID</th>
         <th scope="col">Assigned Referee</th>
+        <th scope="col">Actions</th>
 
       </tr>
     </thead>
@@ -76,8 +79,11 @@
       </tr>
     </tbody>
   </table>
-  <button type="button" onclick="tableToCSV()">Download CSV</button>
-  <br>
+  <button type="button" onclick="tableToCSV2()" class="csv">
+    <span class="bi bi-download"></span>
+    Download CSV
+  </button>
+
   <!---Assignment Form--->
   <div id="">
     <form class="" v-on:submit.prevent="postAssignment(a)" id="assignmentForm">
