@@ -50,25 +50,46 @@
   </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 <main>
-  <div class="container-fluid">
+  <div class="row p-3">
       <h1>Welcome to the Official Indiana Socccer League Site!</h1>
       <h4>The source to find all of the new relevant content about the best soccer league in the Hoosier state.</h4>
-     
-      <div class="row p-3">
-        <div class="col-sm-4">This website will contain all the pertinent information of Megan Kelley's life, rumors and book preferences! Please stay tuned for future updates throughout 2021.</div>
-       
+      <div class="col-sm-4"> 
+        <h2>Login Form</h2>
+
+        <form action="/action_page.php" method="post" >
         
-  
-        <div class="col-sm-4">
-          <img class="img-thumbnail" src="img\Sachi.jpg">
-            <p>Source: https://www.glamour.com/story/megan-fox-opens-up-about-why-she-stopped-drinking-alcohol</p>         
+          <div class="container" id="login">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+                
+            <button type="submit">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
           </div>
-       
-        <div class="col-sm-4">
-          <img class="img-thumbnail" src="img\Transformers.jpg"></img>
-            <p> Source: https://www.pastemagazine.com/movies/transformers-megan-fox/</p>
+        
+        </form>
+
+      </div>
+      <div class="col-sm-4">
+        <img class="img-thumbnail" src="img\IndianaSoccer.png">
+          <p>Source:""</p>         
         </div>
-      
+      <div class="col-sm-4">This website will contain all the pertinent information of Megan Kelley's life, rumors and book preferences! Please stay tuned for future updates throughout 2021.</div>
+
+      </div>
+
+      <div class="row p-3">
+        
+        <div class="col-sm-4">This website will contain all the pertinent information of Megan Kelley's life, rumors and book preferences! Please stay tuned for future updates throughout 2021.</div>
+        <div class="col-sm-4">
+          <img class="img-thumbnail" src="img\RefsPlaying.jpg"></img>
+            <p> Source: ""</p>
+        </div>
+       
      </div>
 
  </div>
