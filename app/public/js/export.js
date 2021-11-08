@@ -8,11 +8,11 @@ function tableToCSV() {
 	for (var i = 0; i < rows.length; i++) {
 
 		// Get each column data
-		var cols = rows[i].querySelectorAll("td,th");
+		var cols = rows[i].querySelectorAll("th,td");
 
 		// Stores each csv row data
 		var csvrow = [];
-		for (var j = 0; j < cols.length; j++) {
+		for (var j = 0; j < (cols.length)-1; j++) {
 
 			// Get the text data of each cell of
 			// a row and push it to csvrow
@@ -41,7 +41,7 @@ function downloadCSVFile(csv_data) {
 	var temp_link = document.createElement('a');
 
 	// Download csv file
-	temp_link.download = "RefereeData.csv";
+	temp_link.download = "TableData.csv";
 	var url = window.URL.createObjectURL(CSVFile);
 	temp_link.href = url;
 
@@ -53,3 +53,6 @@ function downloadCSVFile(csv_data) {
 	temp_link.click();
 	document.body.removeChild(temp_link);
 }
+
+
+// Download Button Code/Directions obtained from: https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
