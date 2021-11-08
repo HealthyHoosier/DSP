@@ -56,10 +56,10 @@
 <main>
   <!-- Game Table  -->
 
-  <div class="p-2" id="oneJS">  
-     <h1><b>Hoosier Games</b></h1>
+  <div class="p-4 mb-3 gameTable" id="oneJS">  
+     <h1><b>Scheduled Games</b></h1>
 
-     <table id="gameTable" class="table table-hover">
+     <table class="table table-hover">
      <thead>
        <tr>
          <th scope="col">Host Team</th>
@@ -88,11 +88,11 @@
    <button type="button" onclick="tableToCSV()" class="csv">
     <span class="bi bi-download"></span>
     Download CSV
-</button>
+  </button>
  
     <!-- Game Form  -->
-  <form v-on:submit.prevent="postGame(g)" id="gameForm">
-    <h3 id="center-me">{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
+  <form class="mb-3 p-2" v-on:submit.prevent="postGame(g)" id="gameForm">
+    <h3 id="center-me"><b>{{ selectedGame === null ? "Add " : "Edit " }} Games</b></h3>
     <fieldset>
       <label for="gameHost" class="form-label">Host Team</label>
       <input type="text" v-model="gameForm.gameHost" class="form-control" id="gameHost">
@@ -115,14 +115,12 @@
         <option value="Professional">Professional</option>
         <option value="Recreational">Recreational</option>
         <option value="Other">Other</option>
-      </select><br><br>
+      </select>
+      <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add " : "Edit " }} Game</button>
+      <button type="button" class="btn btn-outline-secondary" v-if="selectedGame" v-on:click="resetGameForm">Cancel</button>
+  
     </fieldset>
-    <br>
-    <br>
-    
-    <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add " : "Edit " }} Game</button>
-    <button type="button" class="btn btn-outline-secondary" v-if="selectedGame" v-on:click="resetGameForm">Cancel</button>
-    
+
   </form>
   </div>
 </main>
