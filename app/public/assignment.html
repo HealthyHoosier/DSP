@@ -56,9 +56,9 @@
   <table id="assignmentTable" class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Matchup</th>
-        <th scope="col">Game Date</th>
-        <th scope="col">Game Location</th>
+        <th scope="col">Assignment Id</th>
+        <th scope="col">Referee Id</th>
+        <th scope="col">Game Id</th>
         <th scope="col">Assigned Referee</th>
 
       </tr>
@@ -66,12 +66,11 @@
 
     <tbody>
       <tr v-for="a in assignment">
-        <td>{{ a.gameHost }}</td>
-        <td>{{ a.gameDate }}</td>
-        <td>{{ a.gameLocation }}</td>
+        <td>{{ a.assignmentid }}</td>
+        <td>{{ a.refereeid }}</td>
+        <td>{{ a.gameid }}</td>
         <td>{{ a.referee }}</td>
         <td>
-        <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="selectAssignmentToEdit(a)">Edit</button>
         <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="postDeleteAssignment(a)">Delete</button>
         </td>
       </tr>
@@ -87,14 +86,16 @@
       
       <label class="mb-3 p-2" for="gameHost">Available Matches: </label>
       <select v-model="assignmentForm.matchup" name="gameHost" id="gameHost">
-      <option value={{g.gameHost+g.gameVisitor}} v-for="g in game">{{ g.gameHost }} VS. {{ g.gameVisitor }} at {{ g.gameLocation }}</option>
+      <option v-bind:value="g.gameid" v-for="g in game">{{ g.gameHost }} VS. {{ g.gameVisitor }} at {{ g.gameLocation }}</option>
       <option value=""></option>
       </select>
       <br>
 
-      <label class="mb-3 p-2" for="refereeLast">Referee Name: </label>
-      <select v-model="assignmentForm.refereeLast" name="refereeLast" id="refereeLast">
-      <option value={{r.refereeFirst}} v-for="r in referee">{{ r.refereeFirst }} {{ r.refereeLast }}</option>
+
+      <label for="refereeLast">Referee Name: </label>
+      <select v-model="assignmentForm.refereeId" name="refereeLast" id="refereeLast">
+      <option v-bind:value="r.refereeid" v-for="r in referee">{{ r.refereeFirst }} {{ r.refereeLast }}</option>
+
       </select>
       <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</button>
       <button type="button" class="btn btn-outline-secondary" v-if="selectedAssignment" v-on:click="resetAssignmentForm">Cancel</button>
