@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
   <!--JAVASCRIPT-->
@@ -30,7 +31,8 @@
     <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
     <div class="container-fluid" id="">
       <!--COMPANY NAME-->
-      <h1 class="navbar-brand"><b><i>Indiana Soccer Referees</i></b></h1>
+      
+      <h1 class="navbar-brand"><img class=".img-responsive" src="img\IndianaSoccer.png" id="navimg"> </h1>
 
       
       <!--BUTTON TO EXPAND COLLAPSED NAVBAR-->
@@ -54,11 +56,11 @@
 <main>
   <div class="row p-3">
       <h1>Welcome to the Official Indiana Socccer League Site!</h1>
-      <h4>The source to find all of the new relevant content about the best soccer league in the Hoosier state.</h4>
-        <h2>Login Form</h2>
-        <div class="col-sm-6">
-        <form action="/action_page.php" method="post" >
+      <p>The source to find all of the new relevant content about the best soccer league in the Hoosier state.</p>
         
+        <div class="col-sm-4">
+        <form action="" method="post" >
+          <h4>Login Form</h4>
           <div class="container" id="login">
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
@@ -66,7 +68,8 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
                 
-            <button type="submit">Login</button>
+        
+            <a href="assignment.html" class="btn btn-info" id="button">Submit</a>
             <label>
               <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
@@ -75,7 +78,15 @@
         </form>
       </div>
       <div class="col-sm-6">
-      <img class="img-thumbnail" src="img\IndianaSoccer.png"> 
+      <img class="img" src="img\IndianaSoccerWomens.jpg" id="indeximg"> 
+    </div> 
+    <div class="col-sm-2">
+      <img class="img" src="img\Referee.jpg" id="indeximg"> 
+      <img class="img" src="img\fairplay.jpg" id="indeximg"> 
+      <h5>Follow Us on Social Media!</h2>
+<a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-youtube"></a>
     </div>    
     </div>
 
