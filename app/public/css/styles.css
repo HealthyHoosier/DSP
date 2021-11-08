@@ -4,7 +4,7 @@ header{
     /*BORDER*/
     border-style: solid;
     color: whitesmoke;
-    border-width: 2px;
+    border-width: 1px;
     /*BACKGROUND*/
     background-color: #990000;
 }
@@ -66,6 +66,7 @@ h1{
     border-color: black;
     color: black;
     --bs-table-hover-color: #990000;
+
     /*BORDER*/
 }
 .btn-outline-secondary {
@@ -105,34 +106,72 @@ tr{
 /*-------------------DOWNLOAD BUTTON-----------------------------------*/
 .csv{
     /*COLORS*/
-    color: yellow;
+    color: white;
     background-color: black;
     border-color: black;
     /*PADDING*/
-    margin: 5px;
     width: 10%;
+    vertical-align:top;
 }
 /*-------------------ALL FORMS SHARE THIS-----------------------------------*/
+
+   
 form{
-    /*TEXT*/
-    text-align: left;
-    font: 16px/1.4 'BentonSansCondRegular', Arial, sans-serif;
-     /*COLORS*/
-    color: black;
+     /*TEXT*/
+     text-align: left;
+     font: 16px/1.4 'BentonSansCondRegular', Arial, sans-serif;
+      /*COLORS*/
+     color: black;
+
+    /*ALIGN*/
+    margin: auto;
+    margin-bottom: 10px;
+    width: auto;
+    border: 3px solid #f1f1f1;}
+
+#refereeForm {
+height: auto;
+width: 50%;
+padding: 2%;
+}
+
+#gameForm {
+    height: auto;
+    width: 50%;
+    padding: 2%;
+    }
+
+#assignmentForm {
+    height: auto;
+    width: 50%;
+    padding: 2%;
+    }
+
+
+
+#center-me{
+    text-align: center;
+}
+
+label{
+  padding-top:2%;
+  padding-right:2%;
+}
+
+input {
+margin-bottom: 2%;
 }
 button.btn.btn-primary{
-    color: yellow;
-    background-color: black;
-    border-color: black;
+    color:black;
+    background-color: lightgreen;
+    border-color: lightgreen;
     /*PADDING*/
-    margin: 5px;
+    float: right;
 }
 button.btn.btn-primary:hover{
     color: black;
     background-color: green;
-    border-color: black;
-    /*PADDING*/
-    margin: 5px;
+
 }
 /*---------------------------------------------------FOOTER------------------------------------------------*/
 footer{
@@ -149,28 +188,7 @@ footer{
     /*PADDING*/
     padding-top: 10px;
 }
-/*------------------------------------------------REFS PAGE------------------------------------------------*/
-#refereeForm{
-    /*ALIGN*/
-    margin: auto;
-    margin-bottom: 10px;
-    width: 50%;
-    border: 3px Black dashed
-}
 
-
-/*------------------------------------------------GAMES PAGE------------------------------------------------*/
-#gameForm{
-    /*ALIGN*/
-    margin: auto;
-    margin-bottom: 10px;
-    width: 50%;
-    border: 3px Black dashed
-}
-#center-me{
-    text-align: center;
-
-}
 
 /*------------------------------------------------IMGS------------------------------------------------*/
 #indeximg{
@@ -193,6 +211,7 @@ text-align: center;
     text-decoration: none;
     margin: 5px 2px;
     border-radius: 50%;
+  
   }
   
   .fa:hover {
@@ -219,7 +238,13 @@ text-align: center;
 /*------------------------------------------------LOGIN------------------------------------------------*/
 
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+
+
+h4 {
+text-align: center;
+margin-top: 5%;
+
+} 
 
 input[type=text], input[type=password] {
   width: 100%;

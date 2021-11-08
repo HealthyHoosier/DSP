@@ -53,10 +53,11 @@
 </header>
 <!-------------------------------------------------------BODY--------------------------------------------------------------->
 
-<!-- Referees Table -->
- <div class="refereeTable" id="refereesJS">  
-    <br>
-    <h1>League Referees</h1>
+
+<!-- Books Table -->
+ <div class="mb-3 p-4 refereeTable" id="oneJS">  
+
+    <h1><b> League Referees</b></h1>
     <table id="refereeTable" class="table table-hover">
     <thead>
       <tr>
@@ -89,10 +90,10 @@
 
    <!-- Form  -->
    <br>
-   <div id="RefereeFormCSS">
+   <div>
    <form v-on:submit.prevent="postReferee(r)" id="refereeForm">
     <fieldset>
-      <legend id="form_title"><h3 id="center-me">{{ selectedReferee === null ? "Add " : "Edit " }} Referee</h3></legend>
+      <legend id="form_title"><h3 id="center-me"><b>{{ selectedReferee === null ? "Add " : "Edit " }} Referee</b></h3></legend>
       <br>
       
       <label for="refereeFirst">First Name: </label>
@@ -122,19 +123,22 @@
         <option value="B">B</option>
         <option value="B-">B-</option>
         <option value="Other">Other</option>
-      </select><br><br>
-
+      </select>
+      <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add " : "Edit " }} Referee</button>
+      <button type="button" class="btn btn-outline-secondary" v-if="selectedReferee" v-on:click="resetRefereeForm">Cancel</button>
+  
     </fieldset>
-    <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add " : "Edit " }} Referee</button>
-    <button type="button" class="btn btn-outline-secondary" v-if="selectedReferee" v-on:click="resetRefereeForm">Cancel</button>
-  </div>
+    
   
   </form>
+  </div>
+  
+
 </div>
 </main>
 
 <!---------------------------------------------------SOME SCRIPTS---------------------------------------------------------->
-<script src="js/referees.js"></script>
+<script src="js/one.js"></script>
 <script src="js/export.js"></script>
 <script src="js/tablesort.min.js"></script>
 

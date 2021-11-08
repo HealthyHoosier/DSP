@@ -23,20 +23,18 @@ $db = DbConnection::getConnection();
 
 // Step 2
 $stmt = $db->prepare(
-  'INSERT INTO assignments(gameHost,gameVisitor, referee, assignee)
-VALUES (?, ?, ?, ?)'
+  'INSERT INTO assignments(refereeid, gameid)
+VALUES (?, ?)'
 );
 
 $stmt->execute([
-  $_POST['gameHost'],
-  $_POST['gameVisitor'],
-  $_POST['referee'],
-  $_POST['assignee']
+  $_POST['refereeId'],
+  $_POST['matchup']
   
 ]);
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../assignmnent/');
+header('Location: ../assignment/');
 
 
