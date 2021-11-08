@@ -76,6 +76,10 @@
         </td>
     </tbody>
   </table>
+  <button type="button" onclick="tableToCSV()">
+    Download CSV
+</button>
+ 
 
    <!-- Form  -->
    <br>
@@ -86,7 +90,7 @@
       <br>
       
       <label for="refereeFirst">First Name: </label>
-      <input type="text" v-model="refereeForm.refereeFirst" name="refereeFirst" id="refereeFirst" required><br><br>
+      <input type="text" v-model="refereeForm.refereeFirst "name="refereeFirst" id="refereeFirst" required><br><br>
 
       <label for="refereeLast">Last Name: </label>
       <input type="text" v-model="refereeForm.refereeLast" name="refereeLast" id="refereeLast" required><br><br>
@@ -124,11 +128,14 @@
 </main>
 
 <!---------------------------------------------------SOME SCRIPTS---------------------------------------------------------->
+<script src="js/referees.js"></script>
+<script src="js/export.js"></script>
 <script src="js/tablesort.min.js"></script>
+
 <script> 
   new Tablesort(document.getElementById('refereeTable'));
 </script>
-<script src="js/referees.js"></script>
+
 <!-----------------------------------------------------FOOTER--------------------------------------------------------------->
 <footer>
   <div class="container-fluid">
