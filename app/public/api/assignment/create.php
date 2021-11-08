@@ -1,10 +1,5 @@
 <?php
 
-// if (($_SERVER['REQUEST_METHOD'] ?? '') != 'POST') {
-//     header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed");
-//     exit;
-// }
-
 try {
     $_POST = json_decode(
                 file_get_contents('php://input'), 
@@ -12,26 +7,36 @@ try {
                 2,
                 JSON_THROW_ON_ERROR
             );
-} catch (Exception $e) {
+} 
+
+catch (Exception $e) {
     header($_SERVER["SERVER_PROTOCOL"] . " 400 Bad Request");
-    // print_r($_POST);
-    // echo file_get_contents('php://input');
     exit;
 }
 
 require("class/DbConnection.php");
 
+// Step 0: Validate the incoming data
 
-// Step 1
+// Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
 
 // Step 2
 $stmt = $db->prepare(
-  'DELETE FROM assignments WHERE assignmentid = ?'
+  'INSERT INTO assignments(gameHost,gameVisitor, referee, assignee)
+VALUES (?, ?, ?, ?)'
 );
-$stmt->execute([
-    $_POST['assignmentid']
-  ]);
 
+$stmt->execute([
+  $_POST['gameHost'],
+  $_POST['gameVisitor'],
+  $_POST['referee'],
+  $_POST['assignee']
+  
+]);
+
+// Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../assignment/');
+header('Location: ../assignmnent/');
+
+
