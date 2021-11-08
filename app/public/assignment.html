@@ -75,7 +75,9 @@
         </td>
     </tbody>
   </table>
-
+  <button type="button" onclick="tableToCSV()">
+    Download CSV
+</button>
   <br>
   <!---Assignment Form--->
   <div id="RefereeFormCSS">
@@ -106,6 +108,7 @@
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 <script src="js/assignment.js"></script>
 <script src="js/referees.js"></script>
+<script src="js/export.js"></script>
 
 <script>
   new Tablesort(document.getElementById('assignmentTable'));

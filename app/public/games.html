@@ -58,8 +58,8 @@
          <th scope="col">Host Team</th>
          <th scope="col">Visiting Team</th>
          <th scope="col">Game Date</th>
-         <th scope="col">Type</th>
-         <th scope="col">Options</th>
+         <th scope="col">Game Time</th>
+         <th scope="col">Game Type</th>
        </tr>
      </thead>
  
@@ -76,6 +76,9 @@
          </td>
      </tbody>
    </table>
+   <button type="button" onclick="tableToCSV()">
+    Download CSV
+</button>
  
     <!-- Game Form  -->
   <form v-on:submit.prevent="postGame(g)" id="gameForm">
