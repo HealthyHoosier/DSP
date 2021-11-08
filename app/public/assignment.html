@@ -52,8 +52,9 @@
     </div>
     </nav>
   </header>
-<!-------------------------------------------------------BODY--------------------------------------------------------------->
+<!----table--------------------------------------------------------------->
 <div class="mb-3 p-4 assignmentTable"id="oneJS">
+  
   <h1><b>Referee Assignment</b></h1>
   <table id="assignmentTable" class="table table-hover">
     <thead>
@@ -86,30 +87,31 @@
   <!---Assignment Form--->
   <div id="">
     <form class="" v-on:submit.prevent="postAssignment(a)" id="assignmentForm">
+      <fieldset>
       <legend id="form_title"><h3 id="center-me"><b>{{ selectedAssignment === null ? "Add " : "Edit " }} Referee Assignment</b></h3></legend>
-      <br>
       
-      <label class="mb-3 p-2" for="gameHost">Available Matches: </label>
+      <label  for="gameHost">Available Matches: </label>
       <select v-model="assignmentForm.matchup" name="gameHost" id="gameHost">
+        <br>     
       <option v-bind:value="g.gameid" v-for="g in game">{{ g.gameHost }} VS. {{ g.gameVisitor }} at {{ g.gameLocation }}</option>
       <option value=""></option>
-      </select>
-      <br>
-
-
+      </select><br><br>
+  
       <label for="refereeLast">Referee Name: </label>
       <select v-model="assignmentForm.refereeId" name="refereeLast" id="refereeLast">
       <option v-bind:value="r.refereeid" v-for="r in referee">{{ r.refereeFirst }} {{ r.refereeLast }}</option>
+      </select><br><br>
 
-      </select>
       <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</button>
       <button type="button" class="btn btn-outline-secondary" v-if="selectedAssignment" v-on:click="resetAssignmentForm">Cancel</button>
-
+    </fieldset>
 
     </form>
   </div>
 </div>
-</body>
+
+
+
 <script src="js/one.js"></script>
 <script src="js/tablesort.min.js"></script>
 <script src="js/export.js"></script>
@@ -122,4 +124,5 @@
   <a href="#" class="fa fa-twitter" id="socialmedia"></a>
   <a href="#" class="fa fa-youtube" id="socialmedia"></a>
 </footer>
+</body>
 </html>

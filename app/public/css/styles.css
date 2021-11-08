@@ -106,13 +106,16 @@ tr{
     border-style: groove;
 }
 /*-------------------DOWNLOAD BUTTON-----------------------------------*/
+p{
+width: auto;
+}
 .csv{
     /*COLORS*/
     color: white;
     background-color: black;
     border-color: black;
     /*PADDING*/
-    width: 10%;
+    width: 100%;
     vertical-align:top;
 }
 /*-------------------ALL FORMS SHARE THIS-----------------------------------*/
@@ -132,24 +135,22 @@ form{
     border: 3px solid #f1f1f1;}
 
 #refereeForm {
-height: auto;
+height: 100%;
 width: 50%;
 padding: 2%;
 }
 
 #gameForm {
-    height: auto;
+  height: 100%;
     width: 50%;
     padding: 2%;
     }
 
 #assignmentForm {
-    height: auto;
+  height: 100%;
     width: 50%;
     padding: 2%;
     }
-
-
 
 #center-me{
     text-align: center;
@@ -159,9 +160,19 @@ label{
   padding-top:2%;
   padding-right:2%;
 }
+select {
+  padding-bottom: 5%;
+  width:auto;
+  }
+
+ option {
+  margin-bottom: 2%;
+    }
+
 
 input {
 margin-bottom: 2%;
+width:auto;
 }
 button.btn.btn-primary{
     color:black;
@@ -169,6 +180,7 @@ button.btn.btn-primary{
     border-color: lightgreen;
     /*PADDING*/
     float: right;
+    margin-top: 5%;
 }
 button.btn.btn-primary:hover{
     color: black;
