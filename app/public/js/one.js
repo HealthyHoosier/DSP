@@ -264,7 +264,7 @@ const One = {
         },
         // DELETE AN ASSIGNMENT FROM THE DATABASE
         postDeleteAssignment(o) {
-          if (!confirm("Are you sure you want to delete this Assignment"+o.gameHost+"?")) {
+          if (!confirm("Are you sure you want to delete Assignment "+o.assignmentid+"?")) {
             return;
           }
           console.log("Delete", o);

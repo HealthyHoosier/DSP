@@ -23,13 +23,13 @@ $db = DbConnection::getConnection();
 
 // Step 2
 $stmt = $db->prepare(
-  'INSERT INTO assignments(gameHost, referee)
+  'INSERT INTO assignments(refereeid, gameid)
 VALUES (?, ?)'
 );
 
 $stmt->execute([
-  $_POST['gameHost'],
-  $_POST['referee']
+  $_POST['refereeId'],
+  $_POST['matchup']
   
 ]);
 
