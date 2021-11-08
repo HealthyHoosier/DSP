@@ -283,7 +283,7 @@ const One = {
             this.assignment = json;
 
             // RESET THE FORM
-            this.resetassignmentForm();
+            this.resetAssignmentForm();
           });
         },
         // SELECT ASSIGNMENT TO EDIT
