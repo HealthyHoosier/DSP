@@ -53,3 +53,6 @@ function downloadCSVFile(csv_data) {
 	temp_link.click();
 	document.body.removeChild(temp_link);
 }
+
+
+// Download Button Code/Directions obtained from: https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
