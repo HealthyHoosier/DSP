@@ -88,7 +88,7 @@ const Referee = {
         this.referee = json;
   
         // RESET THE FORM
-        this.resetrefereeForm();
+        this.resetRefereeForm();
       });
     },
     // SELECT REFEREE TO EDIT
